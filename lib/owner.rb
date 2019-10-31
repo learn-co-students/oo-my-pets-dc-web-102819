@@ -14,8 +14,7 @@ class Owner
   def buy_cat(name)
     Cat.new(name, self)
   end
-  #def buy_cat(name)
-    #spot = Cat.new(name, self)
+
    #buy dog method to buy dog. Takes in argument of name
     def buy_dog(name)
     dog = Dog.new(name, self)
@@ -66,22 +65,24 @@ class Owner
     @@all = []
   end
 
+  #lists all owner's cats
   def cats
     Cat.all.select do |cat|
       cat.owner == self
     end
   end
-
+  #lists all owner's dogs
   def dogs
     Dog.all.select do |dog|
       dog.owner == self
     end
   end
-
+  #combines cats and dogs into one array
   def pets
     self.cats + self.dogs
   end
 
+  #lists out number of pets and dogs
   def list_pets
     "I have #{self.dogs.count} dog(s), and #{self.cats.count} cat(s)."
   end 
