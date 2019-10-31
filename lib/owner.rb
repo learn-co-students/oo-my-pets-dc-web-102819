@@ -27,5 +27,48 @@ class Owner
       def self.reset_all 
         @@all.clear
       end 
-  # code goes here
+
+      def cats
+        Cat.all.select do |cat|
+          cat.owner == self
+        end
+      end 
+      # code goes here
+      def dogs
+        Dog.all.select do |dog|
+          dog.owner == self
+        end
+      end 
+
+      def buy_cat(name)
+      namelower = name.downcase
+      namelower = Cat.new(name,self)
+      namelower.mood = "happy"
+      end 
+
+      def buy_dog(name)
+        namelower = name.downcase
+        namelower = Dog.new(name,self)
+        namelower.mood = "happy"   
+      end 
+    
+      def walk_dogs
+        self.dogs.each do |dog|
+          dog.mood = "happy"
+        end 
+      end 
+
+     def feed_cats
+      self.cats.each do |cat|
+        cat.mood = "happy"
+      end 
+     end 
+
+     def sell_pets
+     end 
+
+     def list_pets
+     end 
+
+
 end 
